@@ -42,7 +42,7 @@ a {
   background-image: -o-linear-gradient(#ecebed, #dcdcdd);
   background-image: linear-gradient(#ecebed, #dcdcdd);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ecebed,endColorstr=#dcdcdd);
-  width: 180px;
+  width: 175px;
   border: 1px solid #555555;
   border-bottom: 1px;
   color: #222222;
@@ -103,6 +103,7 @@ a {
 .widget .content table {
   background: transparent;
   border: none;
+  margin-top: 10px;
 }
 .widget .content table tr {
   border: none;
@@ -123,7 +124,7 @@ a {
   width: 150px;
   background: #616363;
   content: "";
-  bottom: 0px;
+  bottom: -1px;
   left: 50%;
   margin-left: -75px;
 }
@@ -145,14 +146,14 @@ a {
   background: #616363;
   content: "";
   top: 15px;
-  right: 15px;
+  right: 10px;
 }
 .widget .content table td:last-child {
   padding: 0 10px 0 0;
 }
 .widget .content table img {
   float: left;
-  margin: 10px 15px 10px 10px;
+  margin: 12px 15px 11px 10px;
 }
 .widget .content table .details {
   width: 105px;
@@ -305,7 +306,7 @@ a {
 
 #container {
   width: 440px;
-  margin: 20px 0 0 0;
+  margin: 5px 0 0 0;
 }
 #container .viewport {
   width: 420px;
