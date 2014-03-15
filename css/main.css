@@ -41,6 +41,7 @@ a {
   background-image: -moz-linear-gradient(#ecebed, #dcdcdd);
   background-image: -o-linear-gradient(#ecebed, #dcdcdd);
   background-image: linear-gradient(#ecebed, #dcdcdd);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ecebed,endColorstr=#dcdcdd);
   width: 180px;
   border: 1px solid #555555;
   border-bottom: 1px;
@@ -86,6 +87,7 @@ a {
   background-image: -moz-linear-gradient(#dcdcdd, #68696a);
   background-image: -o-linear-gradient(#dcdcdd, #68696a);
   background-image: linear-gradient(#dcdcdd, #68696a);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#dcdcdd,endColorstr=#68696a);
   position: relative;
   z-index: 1;
   border: 1px solid #555555;

@@ -35,6 +35,7 @@ a
       &.active
         +box-shadow(rgba(0,0,0, .9) 0 0 1px)
         +background-image(linear-gradient(#ecebed, #dcdcdd))
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ecebed,endColorstr=#dcdcdd)
         width: 180px
         border: 1px solid #555
         border-bottom: 1px
@@ -71,6 +72,7 @@ a
   .content
     +box-shadow(rgba(0,0,0, .9) 0 0px 2px)
     +background-image(linear-gradient(#dcdcdd, #68696a))
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#dcdcdd,endColorstr=#68696a)
     position: relative
     z-index: 1
     border: 1px solid #555
@@ -94,7 +96,7 @@ a
         position: relative
         float: left
         display: block
-        
+
         &:before
           +box-shadow(rgba(#333, .6) 0px -1px 1px)
           position: absolute
