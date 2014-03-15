@@ -1,0 +1,302 @@
+@import "compass"
+
+a
+  text-decoration: none
+  outline: none !important
+
+.widget
+  width: 450px
+  margin: 5px
+
+  .tabs
+    position: relative
+    left: 0
+    top: 1px
+    padding: 1px 0 0 1px
+    margin: 0 0 0 -1px
+    z-index: 2
+    height: 45px
+    width: 452px
+    overflow-y: hidden
+
+    a
+      position: relative
+      height: 45px
+      width: 225px
+      line-height: 45px
+      text-align: center
+      display: block
+      float: left
+      color: #555
+
+      &:last-child
+        margin: 0 2px 0 43px
+
+      &.active
+        +box-shadow(rgba(0,0,0, .9) 0 0 1px)
+        +background-image(linear-gradient(#ecebed, #dcdcdd))
+        width: 180px
+        border: 1px solid #555
+        border-bottom: 1px
+        color: #222
+        text-shadow: rgba(#222, .75) 0 2px 3px
+
+        &:after,
+        &:before
+          background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAAAxCAYAAABam76bAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjBENDhDRUQ4QTE2MzExRTNBRkNCODVDNEY5ODAyNTNEIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjRDQTgwRDA2QTE5RTExRTNBRkNCODVDNEY5ODAyNTNEIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MEQ0OENFRDZBMTYzMTFFM0FGQ0I4NUM0Rjk4MDI1M0QiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MEQ0OENFRDdBMTYzMTFFM0FGQ0I4NUM0Rjk4MDI1M0QiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7+Hw2aAAANs0lEQVR42uxcW4wW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")
+          position: absolute
+          top: -3px
+          display: block
+          content: ''
+          width: 45px
+          height: 47px
+
+        &:first-child
+          float: left
+          &:before
+            display: none
+          &:after
+            display: block
+            right: -45px
+
+        &:last-child
+          float: right
+          &:before
+            display: block
+            left: -45px
+            background-position: -45px 0px
+          &:after
+            display: none
+
+  .content
+    +box-shadow(rgba(0,0,0, .9) 0 0px 2px)
+    +background-image(linear-gradient(#dcdcdd, #68696a))
+    position: relative
+    z-index: 1
+    border: 1px solid #555
+    border-bottom: none
+    padding: 0 0 52px 0
+
+    > div
+      display: none
+      &.active
+        display: block
+
+    table
+      background: transparent
+      border: none
+      tr 
+        border: none
+        background: transparent
+        // padding: 0 10px
+
+      td
+        position: relative
+        float: left
+        display: block
+        
+        &:before
+          +box-shadow(rgba(#333, .6) 0px -1px 1px)
+          position: absolute
+          display: block
+          height: 1px
+          width: 150px
+          background: #616363
+          content: ''
+          bottom: 0px
+          left: 50%
+          margin-left: -75px
+
+        &:first-child
+          padding: 0 40px 0 10px
+          &:before
+            width: 160px
+            margin-left: -85px
+          &:after
+            +box-shadow(rgba(#333, .6) -1px -1px 1px)
+            position: absolute
+            display: block
+            height: 45px
+            width: 1px
+            background: #616363
+            content: ''
+            top: 15px
+            right: 15px
+
+        &:last-child
+          padding: 0 10px 0 0 
+
+      img
+        float: left
+        margin: 10px 15px 10px 10px
+      .details
+        width: 105px
+        float: left
+        h3
+          margin: 15px 0 0px 0
+          font-size: 16px
+          font-weight: normal
+          a
+            color: #0b4661
+        p
+          margin: 7px 0
+          display: block
+          width: 105px
+          height: 14px
+          font-size: 12px
+          white-space: nowrap
+          overflow: hidden
+          text-overflow: ellipsis
+
+    .statistics-content
+      padding: 20px
+
+    .controls
+      position: absolute
+      bottom: 0px
+      left: 0px
+      height: 32px
+      padding: 10px 20px 
+
+      .dropdown
+        float: left
+        margin-right: 53px
+        position: relative
+        width: 215px
+
+      .checkbox
+        float: left
+
+        input[type=checkbox]
+          display: none
+
+        label:before
+          content: ""
+          display: block
+          width: 18px
+          height: 18px
+          position: absolute
+          left: 0
+          bottom: 1px
+          background: #fff
+          border: 1px solid #c1c1c1
+
+        label
+          margin: 8px 0 0 0
+          display:  block
+          cursor: pointer
+          position: relative
+          padding-left: 24px
+          font-size: 18px
+          color: #fff
+
+        input[type=checkbox]:checked + label:before
+          content: "\2713"
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, .2)
+          font-size: 18px
+          color: #000
+          text-align: center
+          line-height: 19px
+
+      .dropdown-toggler
+        +border-radius(2px)
+        height: 32px
+        line-height: 32px
+        padding: 0 30px 0 10px
+        width: 175px
+        border: 1px solid #e3e3e3
+        background: white
+        position: relative
+        color: #888
+        cursor: pointer
+
+        &:after
+          display: block
+          content: '▾'
+          position: absolute
+          top: 1px
+          right: 0px
+          height: 30px
+          width: 30px
+          border-left: 1px solid #e3e3e3
+          text-align: center
+          color: #000
+
+      .dropdown-content
+        +box-shadow(rgba(#000, .75) 0px 1px 2px)
+        +border-radius(3px)
+        display: block
+        position: absolute
+        left: 0px
+        top: 34px
+        width: 195px
+        padding: 0 10px
+        background: #fff
+        display: none
+        .variant
+          display: block
+          margin: 5px 0
+          color: #000
+          &:hover
+            color: #256886
+
+
+// Tiny Scrollbar
+#container
+  width: 440px
+  margin: 20px 0 0 0
+
+  .viewport
+    width: 420px
+    height: 180px 
+    overflow: hidden
+    position: relative
+
+  .overview
+    list-style: none
+    position: absolute
+    left: 0
+    top: 0
+    padding: 0
+    margin: 0
+
+  .scrollbar
+    +border-radius(5px)
+    +box-shadow(rgba(0,0,0, .75) 0px 0px 7px inset)
+    background: #a0a1a1
+    position: relative
+    background-position: 0 0
+    float: right
+    width: 15px
+
+  .track
+    height: 100%
+    width: 13px
+    position: relative
+    padding: 0 1px
+
+  .thumb
+    +border-radius(5px)
+    background: #4d4f50
+    height: 20px
+    width: 11px
+    cursor: pointer
+    overflow: hidden
+    position: absolute
+    top: 0
+    left: 2px
+
+    .end
+      overflow: hidden
+      height: 5px
+      width: 25px
+
+  .disable
+    display: none
+
+.noSelect
+  user-select: none
+  -o-user-select: none
+  -moz-user-select: none
+  -khtml-user-select: none
+  -webkit-user-select: none
