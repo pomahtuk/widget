@@ -1,0 +1,69 @@
+html ng-app="myApp"
+  head
+
+    meta charset="utf-8" 
+    meta content="IE=edge" http-equiv="X-UA-Compatible" 
+    title Widget Angular
+    meta content="initial-scale=1" name="viewport" 
+    link href="css/normalize.css" rel="stylesheet" 
+    link href="css/main.css" rel="stylesheet" 
+
+  body
+
+    .widget ng-controller="WidgetController"
+      .tabs
+        a href="javascript:void(0)" ng-click="activeTab = 'users'" ng-class="{'active': activeTab == 'users'}"
+          | Users
+        a href="javascript:void(0)" ng-click="activeTab = 'statistics'" ng-class="{'active': activeTab == 'statistics'}"
+          | Statistics
+
+      .content
+        .users-content ng-class="{'active': activeTab == 'users'}"
+          #container
+            .scrollbar
+              .track
+                .thumb
+                  .end
+            .viewport
+              .overview
+                table
+                  tr ng-repeat="row in rows" on-finish-render="scrollbarUpdate()"
+                    td ng-repeat="user in row"
+                      img src="http://placehold.it/50x50"
+                      .details
+                        h3
+                          a href="#"
+                            | {{user.name}}
+                        p
+                          | {{user.title}}            
+
+          .controls
+            .dropdown
+              .dropdown-toggler ng-click="showDropDown = !showDropDown"
+                span.val.noSelect 
+                  | {{currentLang}}
+              .dropdown-content.angular ng-show="showDropDown"
+                a.variant href="#" ng-click="currentLang = 'Русский'; showDropDown = false"
+                  | Русский
+                a.variant href="#" ng-click="currentLang = 'Английский'; showDropDown = false"
+                  | Английский
+                a.variant href="#" ng-click="currentLang = 'Французский'; showDropDown = false"
+                  | Французский
+                a.variant href="#" ng-click="currentLang = 'Немецкий'; showDropDown = false"
+                  | Немецкий
+            .checkbox
+              input#check type="checkbox" name="check" value="check"
+              label for="check" 
+                | OK
+        
+        .statistics-content ng-class="{'active': activeTab == 'statistics'}"
+          | here comes some user statistics
+
+    a href="/" 
+      | &nbsp; jQuery version
+
+    script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
+    script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.js"
+    script src="http://code.angularjs.org/1.2.14/angular-animate.min.js"
+    script src="js/vendor/jquery.tinyscrollbar.js"
+    script src="js/main_angular.js"

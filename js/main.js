@@ -1,11 +1,6 @@
 (function() {
   $(function() {
-    var container;
     $('#container').tinyscrollbar();
-    container = $('#container').data("plugin_tinyscrollbar");
-    setTimeout(function() {
-      return container.update();
-    }, 100);
     $('.dropdown > .dropdown-toggler').click(function() {
       var elem;
       elem = $(this);

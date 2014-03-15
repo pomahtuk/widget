@@ -1,0 +1,71 @@
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>Widget Angular</title>
+    <meta content="initial-scale=1" name="viewport">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="widget" ng-controller="WidgetController">
+      <div class="tabs">
+        <a href="javascript:void(0)" ng-class="{&#39;active&#39;: activeTab == &#39;users&#39;}" ng-click="activeTab = &#39;users&#39;">Users</a><a href="javascript:void(0)" ng-class="{&#39;active&#39;: activeTab == &#39;statistics&#39;}" ng-click="activeTab = &#39;statistics&#39;">Statistics</a>
+      </div>
+      <div class="content">
+        <div class="users-content" ng-class="{&#39;active&#39;: activeTab == &#39;users&#39;}">
+          <div id="container">
+            <div class="scrollbar">
+              <div class="track">
+                <div class="thumb">
+                  <div class="end"></div>
+                </div>
+              </div>
+            </div>
+            <div class="viewport">
+              <div class="overview">
+                <table>
+                  <tr ng-repeat="row in rows" on-finish-render="scrollbarUpdate()">
+                    <td ng-repeat="user in row">
+                      <img src="http://placehold.it/50x50">
+                      <div class="details">
+                        <h3>
+                          <a href="#">{{user.name}}</a>
+                        </h3>
+                        <p>
+                          {{user.title}}            
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="controls">
+            <div class="dropdown">
+              <div class="dropdown-toggler" ng-click="showDropDown = !showDropDown">
+                <span class="val noSelect">{{currentLang}}</span>
+              </div>
+              <div class="dropdown-content angular" ng-show="showDropDown">
+                <a class="variant" href="#" ng-click="currentLang = &#39;Русский&#39;; showDropDown = false">Русский</a><a class="variant" href="#" ng-click="currentLang = &#39;Английский&#39;; showDropDown = false">Английский</a><a class="variant" href="#" ng-click="currentLang = &#39;Французский&#39;; showDropDown = false">Французский</a><a class="variant" href="#" ng-click="currentLang = &#39;Немецкий&#39;; showDropDown = false">Немецкий</a>
+              </div>
+            </div>
+            <div class="checkbox">
+              <input id="check" name="check" type="checkbox" value="check"><label for="check">OK</label>
+            </div>
+          </div>
+        </div>
+        <div class="statistics-content" ng-class="{&#39;active&#39;: activeTab == &#39;statistics&#39;}">
+          here comes some user statistics
+        </div>
+      </div>
+    </div>
+    <a href="/">&nbsp; jQuery version</a>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.js"></script>
+    <script src="http://code.angularjs.org/1.2.14/angular-animate.min.js"></script>
+    <script src="js/vendor/jquery.tinyscrollbar.js"></script>
+    <script src="js/main_angular.js"></script>
+  </body>
+</html>

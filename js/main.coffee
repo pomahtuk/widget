@@ -1,11 +1,5 @@
 $ ->
-  # figure out the problem
   $('#container').tinyscrollbar()
-  container = $('#container').data("plugin_tinyscrollbar")
-  
-  setTimeout ->
-    container.update()
-  , 100
 
   $('.dropdown > .dropdown-toggler').click ->
     elem = $ @

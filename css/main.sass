@@ -235,6 +235,8 @@ a
         padding: 0 10px
         background: #fff
         display: none
+        &.angular
+          display: block
         .variant
           display: block
           margin: 5px 0
@@ -242,6 +244,21 @@ a
           &:hover
             color: #256886
 
+.ng-hide-add, 
+.ng-hide-remove
+  -webkit-transition: all linear 0.2s
+  -moz-transition: all linear 0.2s
+  -o-transition: all linear 0.2s
+  transition: all linear 0.2s
+  display: block !important
+ 
+.ng-hide-add.ng-hide-add-active,
+.ng-hide-remove
+  opacity: 0
+ 
+.ng-hide-add,
+.ng-hide-remove.ng-hide-remove-active
+  opacity: 1
 
 // Tiny Scrollbar
 #container
