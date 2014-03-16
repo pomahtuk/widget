@@ -2,32 +2,15 @@ $ ->
 
   applyFilterSign = $('#check')
   dropDownToggler = $('.dropdown > .dropdown-toggler')
-
-  #create userArray based on markup
-  userArray = []
-  $('#container table tr').each (index, row) ->
-    row       = $ row
-    row.find('td').each (index, user) ->
-      userElem = $(user).find('.details')
-      user = 
-        name: userElem.find('h3').text().trim()
-        text: userElem.find('p').text().trim()
-        lang: userElem.data('language')
-      userArray.push user
-
-  drawFiltered = (array) ->
-    # console.log array
-    # replace table content
-    true
+  usersElements   = $('#container .user-block')
 
   filterElements = ->
     array = []
     if applyFilterSign.is(':checked')
-      array = $.grep userArray, (element, index) ->
-        element.lang == dropDownToggler.text().trim()
+      usersElements.hide()
+      usersElements.filter("[data-language=#{dropDownToggler.text().trim()}]").show()
     else
-      array = userArray
-    drawFiltered(array)
+      usersElements.show()
     true
 
   $('.nano').nanoScroller

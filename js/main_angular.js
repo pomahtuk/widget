@@ -1,17 +1,4 @@
 (function() {
-  var chunk;
-
-  chunk = function(array, amount) {
-    var arr, i, row, rows, _i, _ref;
-    arr = angular.copy(array);
-    rows = [];
-    for (i = _i = 0, _ref = arr.length - 1; amount > 0 ? _i <= _ref : _i >= _ref; i = _i += amount) {
-      row = arr.splice(0, amount);
-      rows.push(row);
-    }
-    return rows;
-  };
-
   angular.module('myApp', ['ngAnimate']).controller('WidgetController', function($scope) {
     var filterUsers, users;
     users = [
@@ -49,7 +36,6 @@
         language: 'Русский'
       }
     ];
-    $scope.rows = chunk(users, 2);
     $scope.users = users;
     $scope.scrollbarUpdate = function() {
       $('.nano').nanoScroller({
@@ -59,14 +45,12 @@
       return true;
     };
     filterUsers = function() {
-      var filterredUsers;
       if ($scope.applyFilter === true) {
-        filterredUsers = $.grep($scope.users, function(element, index) {
+        return $scope.users = $.grep(users, function(element, index) {
           return element.language === $scope.currentLang;
         });
-        return $scope.rows = chunk(filterredUsers, 2);
       } else {
-        return $scope.rows = chunk($scope.users, 2);
+        return $scope.users = users;
       }
     };
     $scope.$watch('applyFilter', function(newVal, oldVal) {

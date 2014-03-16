@@ -1,36 +1,18 @@
 (function() {
   $(function() {
-    var applyFilterSign, drawFiltered, dropDownToggler, filterElements, userArray;
+    var applyFilterSign, dropDownToggler, filterElements, usersElements;
     applyFilterSign = $('#check');
     dropDownToggler = $('.dropdown > .dropdown-toggler');
-    userArray = [];
-    $('#container table tr').each(function(index, row) {
-      row = $(row);
-      return row.find('td').each(function(index, user) {
-        var userElem;
-        userElem = $(user).find('.details');
-        user = {
-          name: userElem.find('h3').text().trim(),
-          text: userElem.find('p').text().trim(),
-          lang: userElem.data('language')
-        };
-        return userArray.push(user);
-      });
-    });
-    drawFiltered = function(array) {
-      return true;
-    };
+    usersElements = $('#container .user-block');
     filterElements = function() {
       var array;
       array = [];
       if (applyFilterSign.is(':checked')) {
-        array = $.grep(userArray, function(element, index) {
-          return element.lang === dropDownToggler.text().trim();
-        });
+        usersElements.hide();
+        usersElements.filter("[data-language=" + (dropDownToggler.text().trim()) + "]").show();
       } else {
-        array = userArray;
+        usersElements.show();
       }
-      drawFiltered(array);
       return true;
     };
     $('.nano').nanoScroller({

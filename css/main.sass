@@ -84,56 +84,48 @@ a
       &.active
         display: block
 
-    table
-      background: transparent
-      border: none
-      margin-top: 10px
-      tr 
-        border: none
-        background: transparent
-        // padding: 0 10px
 
-      td
-        position: relative
-        float: left
+    .user-block
+      float: left
+      width: 180px
+      position: relative
+      padding: 0 10px 0 0
+
+      &:before
+        +box-shadow(rgba(#333, .6) 0px -1px 1px)
+        position: absolute
         display: block
+        height: 1px
+        width: 150px
+        background: #616363
+        content: ''
+        bottom: -1px
+        left: 50%
+        margin-left: -75px
 
+      &:nth-child(odd)
+        padding: 0 40px 0 10px
         &:before
-          +box-shadow(rgba(#333, .6) 0px -1px 1px)
+          width: 160px
+          margin-left: -85px
+        &:after
+          +box-shadow(rgba(#333, .6) -1px -1px 1px)
           position: absolute
           display: block
-          height: 1px
-          width: 150px
+          height: 45px
+          width: 1px
           background: #616363
           content: ''
-          bottom: -1px
-          left: 50%
-          margin-left: -75px
+          top: 15px
+          right: 10px
 
-        &:first-child
-          padding: 0 40px 0 10px
-          &:before
-            width: 160px
-            margin-left: -85px
-          &:after
-            +box-shadow(rgba(#333, .6) -1px -1px 1px)
-            position: absolute
-            display: block
-            height: 45px
-            width: 1px
-            background: #616363
-            content: ''
-            top: 15px
-            right: 10px
-
-        &:last-child
-          padding: 0 10px 0 0
-          &:after
-            display: none
+      &:last-child:after
+        display: none
 
       img
         float: left
         margin: 12px 15px 11px 10px
+
       .details
         width: 105px
         float: left

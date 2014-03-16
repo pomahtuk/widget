@@ -100,21 +100,13 @@ a {
 .widget .content > div.active {
   display: block;
 }
-.widget .content table {
-  background: transparent;
-  border: none;
-  margin-top: 10px;
-}
-.widget .content table tr {
-  border: none;
-  background: transparent;
-}
-.widget .content table td {
-  position: relative;
+.widget .content .user-block {
   float: left;
-  display: block;
+  width: 180px;
+  position: relative;
+  padding: 0 10px 0 0;
 }
-.widget .content table td:before {
+.widget .content .user-block:before {
   -webkit-box-shadow: rgba(51, 51, 51, 0.6) 0px -1px 1px;
   -moz-box-shadow: rgba(51, 51, 51, 0.6) 0px -1px 1px;
   box-shadow: rgba(51, 51, 51, 0.6) 0px -1px 1px;
@@ -128,14 +120,14 @@ a {
   left: 50%;
   margin-left: -75px;
 }
-.widget .content table td:first-child {
+.widget .content .user-block:nth-child(odd) {
   padding: 0 40px 0 10px;
 }
-.widget .content table td:first-child:before {
+.widget .content .user-block:nth-child(odd):before {
   width: 160px;
   margin-left: -85px;
 }
-.widget .content table td:first-child:after {
+.widget .content .user-block:nth-child(odd):after {
   -webkit-box-shadow: rgba(51, 51, 51, 0.6) -1px -1px 1px;
   -moz-box-shadow: rgba(51, 51, 51, 0.6) -1px -1px 1px;
   box-shadow: rgba(51, 51, 51, 0.6) -1px -1px 1px;
@@ -148,29 +140,26 @@ a {
   top: 15px;
   right: 10px;
 }
-.widget .content table td:last-child {
-  padding: 0 10px 0 0;
-}
-.widget .content table td:last-child:after {
+.widget .content .user-block:last-child:after {
   display: none;
 }
-.widget .content table img {
+.widget .content .user-block img {
   float: left;
   margin: 12px 15px 11px 10px;
 }
-.widget .content table .details {
+.widget .content .user-block .details {
   width: 105px;
   float: left;
 }
-.widget .content table .details h3 {
+.widget .content .user-block .details h3 {
   margin: 15px 0 0px 0;
   font-size: 16px;
   font-weight: normal;
 }
-.widget .content table .details h3 a {
+.widget .content .user-block .details h3 a {
   color: #0b4661;
 }
-.widget .content table .details p {
+.widget .content .user-block .details p {
   margin: 7px 0;
   display: block;
   width: 105px;

@@ -1,15 +1,3 @@
-chunk = (array, amount) ->
-  # transform response to rows
-  arr  = angular.copy(array)
-  rows = []
-
-  for i in [0..arr.length - 1] by amount
-    row = arr.splice(0, amount)
-    rows.push row
-
-  rows
-
-
 angular.module('myApp', ['ngAnimate'])
 
 .controller 'WidgetController', ($scope) ->
@@ -57,7 +45,6 @@ angular.module('myApp', ['ngAnimate'])
     }
   ]
 
-  $scope.rows   = chunk users, 2
   $scope.users  = users
 
   #scrollbar intagration
@@ -70,11 +57,10 @@ angular.module('myApp', ['ngAnimate'])
   filterUsers = ->
     if $scope.applyFilter is true
       # using jQyery function to filter values
-      filterredUsers = $.grep $scope.users, (element, index) ->
+      $scope.users = $.grep users, (element, index) ->
         element.language == $scope.currentLang
-      $scope.rows = chunk filterredUsers, 2
     else
-      $scope.rows = chunk $scope.users, 2
+      $scope.users = users
 
   $scope.$watch 'applyFilter', (newVal, oldVal) ->
     if newVal?

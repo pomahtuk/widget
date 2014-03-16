@@ -16,21 +16,17 @@
         <div class="users-content" ng-class="{&#39;active&#39;: activeTab == &#39;users&#39;}">
           <div class="nano" id="container">
             <div class="viewport nano-content">
-              <table>
-                <tr ng-repeat="row in rows" on-finish-render="scrollbarUpdate()">
-                  <td ng-repeat="user in row">
-                    <img src="http://placehold.it/50x50">
-                    <div class="details">
-                      <h3>
-                        <a href="#">{{user.name}}</a>
-                      </h3>
-                      <p>
-                        {{user.title}}            
-                      </p>
-                    </div>
-                  </td>
-                </tr>
-              </table>
+              <div class="user-block" ng-repeat="user in users" on-finish-render="scrollbarUpdate()">
+                <img src="http://placehold.it/50x50">
+                <div class="details">
+                  <h3>
+                    <a href="#">{{user.name}}</a>
+                  </h3>
+                  <p>
+                    {{user.title}}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="controls">
