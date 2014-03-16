@@ -11,7 +11,7 @@ html ng-app="myApp"
   body
 
     .widget ng-controller="WidgetController"
-      .tabs
+      .tabs ng-init="activeTab = 'users'"
         a href="javascript:void(0)" ng-click="activeTab = 'users'" ng-class="{'active': activeTab == 'users'}"
           | Users
         a href="javascript:void(0)" ng-click="activeTab = 'statistics'" ng-class="{'active': activeTab == 'statistics'}"
@@ -19,26 +19,21 @@ html ng-app="myApp"
 
       .content
         .users-content ng-class="{'active': activeTab == 'users'}"
-          #container
-            .scrollbar
-              .track
-                .thumb
-                  .end
-            .viewport
-              .overview
-                table
-                  tr ng-repeat="row in rows" on-finish-render="scrollbarUpdate()"
-                    td ng-repeat="user in row"
-                      img src="http://placehold.it/50x50"
-                      .details
-                        h3
-                          a href="#"
-                            | {{user.name}}
-                        p
-                          | {{user.title}}            
+          #container.nano
+            .viewport.nano-content
+              table
+                tr ng-repeat="row in rows" on-finish-render="scrollbarUpdate()"
+                  td ng-repeat="user in row"
+                    img src="http://placehold.it/50x50"
+                    .details
+                      h3
+                        a href="#"
+                          | {{user.name}}
+                      p
+                        | {{user.title}}            
 
           .controls
-            .dropdown
+            .dropdown ng-init="currentLang = 'Русский'"
               .dropdown-toggler ng-click="showDropDown = !showDropDown"
                 span.val.noSelect 
                   | {{currentLang}}
@@ -52,8 +47,8 @@ html ng-app="myApp"
                 a.variant href="#" ng-click="currentLang = 'Немецкий'; showDropDown = false"
                   | Немецкий
             .checkbox
-              input#check type="checkbox" name="check" value="check"
-              label for="check" 
+              input#check type="checkbox" name="check" value="check" ng-model="applyFilter"
+              label for="check"
                 | OK
         
         .statistics-content ng-class="{'active': activeTab == 'statistics'}"
@@ -65,5 +60,5 @@ html ng-app="myApp"
     script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
     script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.js"
     script src="http://code.angularjs.org/1.2.14/angular-animate.min.js"
-    script src="js/vendor/jquery.tinyscrollbar.js"
+    script src="js/vendor/jquery.nanoscroller.min.js"
     script src="js/main_angular.js"

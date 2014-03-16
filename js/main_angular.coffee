@@ -1,3 +1,15 @@
+chunk = (array, amount) ->
+  # transform response to rows
+  arr  = angular.copy(array)
+  rows = []
+
+  for i in [0..arr.length - 1] by amount
+    row = arr.splice(0, amount)
+    rows.push row
+
+  rows
+
+
 angular.module('myApp', ['ngAnimate'])
 
 .controller 'WidgetController', ($scope) ->
@@ -6,61 +18,71 @@ angular.module('myApp', ['ngAnimate'])
     {
       name: 'Анжелика'
       title: 'Очень длинное сообщение'
+      language: 'Русский'
     }
     {
       name: 'Анастасия'
       title: 'Очень длинное сообщение'
+      language: 'Немецкий'
     }
     {
       name: 'Евгения'
       title: 'Очень длинное сообщение'
+      language: 'Французский'
     }
     {
       name: 'Анна'
       title: 'Очень длинное сообщение'
+      language: 'Английский'
     }
     {
       name: 'Екатерина'
       title: 'Очень длинное сообщение'
+      language: 'Английский'
     }
     {
       name: 'Ольга'
       title: 'Очень длинное сообщение'
+      language: 'Русский'
     }
     {
       name: 'Ирина'
       title: 'Очень длинное сообщение'
+      language: 'Русский'
     }
     {
       name: 'Марина'
       title: 'Очень длинное сообщение'
+      language: 'Русский'
     }
   ]
 
-  # transform response to rows
-  rows = []
-
-  for user, index in users by 2
-    row = [
-      users[index]
-      users[index + 1]
-    ]
-    rows.push row
-
-  $scope.rows   = rows
+  $scope.rows   = chunk users, 2
   $scope.users  = users
-
-  # initial value
-  $scope.currentLang  = 'Русский'
-  $scope.activeTab    = 'users'
 
   #scrollbar intagration
   $scope.scrollbarUpdate = ->
-    if $scope.scrollbarAPI?
-      $scope.scrollbarAPI.update()
+    $('.nano').nanoScroller
+      iOSNativeScrolling: true
+      sliderMaxHeight: 180
+    true
+
+  filterUsers = ->
+    if $scope.applyFilter is true
+      # using jQyery function to filter values
+      filterredUsers = $.grep $scope.users, (element, index) ->
+        element.language == $scope.currentLang
+      $scope.rows = chunk filterredUsers, 2
     else
-      $('#container').tinyscrollbar()
-      $scope.scrollbarAPI = $('#box').data("plugin_tinyscrollbar")
+      $scope.rows = chunk $scope.users, 2
+
+  $scope.$watch 'applyFilter', (newVal, oldVal) ->
+    if newVal?
+      filterUsers()
+      
+  $scope.$watch 'currentLang', (newVal, oldVal) ->
+    if newVal?
+      filterUsers()
 
 .directive 'onFinishRender', ($timeout) ->
   restrict: 'A'

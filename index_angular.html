@@ -9,41 +9,32 @@
   </head>
   <body>
     <div class="widget" ng-controller="WidgetController">
-      <div class="tabs">
+      <div class="tabs" ng-init="activeTab = &#39;users&#39;">
         <a href="javascript:void(0)" ng-class="{&#39;active&#39;: activeTab == &#39;users&#39;}" ng-click="activeTab = &#39;users&#39;">Users</a><a href="javascript:void(0)" ng-class="{&#39;active&#39;: activeTab == &#39;statistics&#39;}" ng-click="activeTab = &#39;statistics&#39;">Statistics</a>
       </div>
       <div class="content">
         <div class="users-content" ng-class="{&#39;active&#39;: activeTab == &#39;users&#39;}">
-          <div id="container">
-            <div class="scrollbar">
-              <div class="track">
-                <div class="thumb">
-                  <div class="end"></div>
-                </div>
-              </div>
-            </div>
-            <div class="viewport">
-              <div class="overview">
-                <table>
-                  <tr ng-repeat="row in rows" on-finish-render="scrollbarUpdate()">
-                    <td ng-repeat="user in row">
-                      <img src="http://placehold.it/50x50">
-                      <div class="details">
-                        <h3>
-                          <a href="#">{{user.name}}</a>
-                        </h3>
-                        <p>
-                          {{user.title}}            
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-              </div>
+          <div class="nano" id="container">
+            <div class="viewport nano-content">
+              <table>
+                <tr ng-repeat="row in rows" on-finish-render="scrollbarUpdate()">
+                  <td ng-repeat="user in row">
+                    <img src="http://placehold.it/50x50">
+                    <div class="details">
+                      <h3>
+                        <a href="#">{{user.name}}</a>
+                      </h3>
+                      <p>
+                        {{user.title}}            
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
             </div>
           </div>
           <div class="controls">
-            <div class="dropdown">
+            <div class="dropdown" ng-init="currentLang = &#39;Русский&#39;">
               <div class="dropdown-toggler" ng-click="showDropDown = !showDropDown">
                 <span class="val noSelect">{{currentLang}}</span>
               </div>
@@ -52,7 +43,7 @@
               </div>
             </div>
             <div class="checkbox">
-              <input id="check" name="check" type="checkbox" value="check"><label for="check">OK</label>
+              <input id="check" name="check" ng-model="applyFilter" type="checkbox" value="check"><label for="check">OK</label>
             </div>
           </div>
         </div>
@@ -65,7 +56,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.js"></script>
     <script src="http://code.angularjs.org/1.2.14/angular-animate.min.js"></script>
-    <script src="js/vendor/jquery.tinyscrollbar.js"></script>
+    <script src="js/vendor/jquery.nanoscroller.min.js"></script>
     <script src="js/main_angular.js"></script>
   </body>
 </html>
